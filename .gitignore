@@ -1,0 +1,5 @@
+myenv/
+.env
+*.json
+__pycache__/
+*.csv
