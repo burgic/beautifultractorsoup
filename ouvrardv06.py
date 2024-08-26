@@ -1,4 +1,5 @@
 import requests
+import os
 from google.cloud import storage
 from dotenv import load_dotenv
 from bs4 import BeautifulSoup
@@ -149,6 +150,9 @@ def main():
     if all_product_details:
         today_date = datetime.now().strftime("%Y-%m-%d")
         filename = f'product_details{today_date}.csv'
+        output_dir = './results'
+
+        filepath = os.path.join(output_dir, filename)
         df = pd.DataFrame(all_product_details)
         df.to_csv(filename, index=False)
         print("Data has been saved to product_details.csv")
